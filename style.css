@@ -1,0 +1,50 @@
+
+
+.press {
+  display: inline-block;
+  min-width: 20px;
+  /* height: 20px; */
+  padding: 10px 10px;
+  /* border: solid lightgrey 0.3px; */
+  border-radius: 3px;
+  text-align: center;
+  background-color: lightblue;
+}
+
+table input {
+  text-align: center;
+  font-size: 25px;
+  margin: 10px 30px;
+  width: 75px;
+  border: 0;
+  background-color: lightblue;
+}
+
+th, td, tr {
+  /* width: 100px;
+  height: 50px; */
+  border-radius: 3px;
+  background-color: lightblue;
+}
+
+th {
+  height: 100px;
+}
+
+td {
+  height: 50px;
+}
+
+td.picture {
+  width: 100px
+}
+
+td.value {
+  width: 100px;
+}
+
+td.button {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+}

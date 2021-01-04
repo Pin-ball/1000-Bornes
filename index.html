@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="./style.css">
+      <title>1000 Bornes</title>
+  </head>
+
+  <body onload="replace()">
+    <script type="text/javascript" src="js/script.js"></script>
+
+
+      <form>
+          <h1>Tableau des scores <span id="myText"></span></h1>
+          <p class="demo">Class Demo 0</p>
+          <p class="demo">Class Demo 1</p>
+          <p class="demo">Class Demo 2</p>
+          <p id="demo">ID Demo</p>
+
+          <div>
+              <label for="pseudo">Pseudo</label> :
+              <input type="text" name="pseudo" id="pseudo" required>
+              <span id="aidePseudo"></span>
+          </div>
+
+          <div>
+              <label for="num">Number</label> :
+              <input type="number" name="num" id="num" value="123">
+              <span id="aidenum"></span>
+              <div class="press" onclick="up('num')"/>+</div>
+              <div class="press" onclick="down('num')"/>-</div>
+              <br><br>
+              <div class="press" onclick="reset()"/>RAZ</div>        <!-- Reset() is an inbuild Java method -->
+              <div class="press" onclick="cancel(0)"/>Cancel</div>
+              <div class="press" onclick="total()"/>Total</div>
+            <br>
+          </div>
+
+<!-- ________________________ 2 GAMERS ________________________ -->
+
+          <div class="" id="table">
+            <table>
+              <thead>                                           <!-- To structure a table : Declare Head-->
+                <tr>
+                  <th scope="col" colspan="3"> Damien </th>
+                  <th scope="col" colspan="3"> Coline </th>
+                </tr>
+              <thead>
+              <tbody>                                           <!-- To structure a table : Declare Body-->
+                <!-- ROW 1-->
+                <tr>
+                  <td class="picture" rowspan="16"></td>
+                  <td rowspan="2">
+                    <label for="borne">Borne</label>
+                    <input type="text" name="borne" id="borne1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up2('borne1', 25)">+</td>
+                  <td class="picture" rowspan="16"></td>
+                  <td rowspan="2">
+                    <label for="borne">Borne</label>
+                    <input type="text" name="borne" id="borne2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up2('borne2', 25)">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down2('borne1', 25)">-</td>
+                  <td class="button" onclick="down2('borne2', 25)">-</td>
+                </tr>
+                <!-- ROW 2-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Botte (100)</label>
+                    <input type="text" name="num" id="botte1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('botte1')">+</td>
+                  <td class="value" rowspan="2">
+                    <label for="num">Botte (100)</label>
+                    <input type="text" name="num" id="botte2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('botte2')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('botte1')">-</td>
+                  <td class="button" onclick="down('botte2')">-</td>
+                </tr>
+                <!-- ROW 2-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">4x Bottes (700)</label>
+                    <input type="text" name="num" id="abotte1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('abotte1')">+</td>
+                  <td class="value" rowspan="2">
+                    <label for="num">4x Bottes (700)</label>
+                    <input type="text" name="num" id="abotte2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('abotte2')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('abotte1')">-</td>
+                  <td class="button" onclick="down('abotte2')">-</td>
+                </tr>
+                <!-- ROW 3-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Coup fouré (300)</label>
+                    <input type="text" name="num" id="cf1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('cf1')">+</td>
+                  <td class="value" rowspan="2">
+                    <label for="num">Coup fouré (300)</label>
+                    <input type="text" name="num" id="cf2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('cf2')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('cf1')">-</td>
+                  <td class="button" onclick="down('cf2')">-</td>
+                </tr>
+                <!-- ROW 4-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Manche (400)</label>
+                    <input type="text" name="num" id="manche1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('manche1')">+</td>
+                  <td class="value" rowspan="2">
+                    <label for="num">Manche (400)</label>
+                    <input type="text" name="num" id="manche2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('manche2')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('manche1')">-</td>
+                  <td class="button" onclick="down('manche2')">-</td>
+                </tr>
+                <!-- ROW 5-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">200 sans étape (300)</label>
+                    <input type="text" name="num" id="se1" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('se1')">+</td>
+                  <td class="value" rowspan="2">
+                    <label for="num">200 sans étape (300)</label>
+                    <input type="text" name="num" id="se2" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('se2')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('se1')">-</td>
+                  <td class="button" onclick="down('se2')">-</td>
+                </tr>
+                <!--  -->
+                <tr>
+                  <td class="value" id="total1" colspan="2">0</td>
+                  <td class="value" id="total2" colspan="2">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+<!-- ________________________ 1 GAMER ________________________ -->
+
+          <div class="" id="table1">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col" colspan="2"> Damien </th>
+                </tr>
+              <thead>
+              <tbody>
+                <!-- ROW 1-->
+                <tr>
+                  <td rowspan="2">
+                    <label for="borne">Borne</label>
+                    <input type="text" name="borne" id="borne" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('borne')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('borne')">-</td>
+                </tr>
+                <!-- ROW 2-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Botte (100)</label>
+                    <input type="text" name="num" id="botte" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('botte')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('botte')">-</td>
+                </tr>
+                <!-- ROW 3-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Coup fouré (400)</label>
+                    <input type="text" name="num" id="cf" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('cf')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('cf')">-</td>
+                </tr>
+                <!-- ROW 4-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">Manche (700)</label>
+                    <input type="text" name="num" id="manche" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('manche')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('manche')">-</td>
+                </tr>
+                <!-- ROW 5-->
+                <tr>
+                  <td class="value" rowspan="2">
+                    <label for="num">200 sans étape (300)</label>
+                    <input type="text" name="num" id="se" value="0" required>
+                  </td>
+                  <td class="button" onclick="up('se')">+</td>
+                </tr>
+                <tr>
+                  <td class="button" onclick="down('se')">-</td>
+                </tr>
+                <!--  -->
+                <tr>
+                  <td class="value" id="total" colspan="2">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </form>
+
+  </body>
+</html>
