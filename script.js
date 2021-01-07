@@ -1,138 +1,70 @@
-
-
-
-// var pseudoElt = document.getElementById("pseudo");
-// pseudoElt.value = "MonPseudo";
-//
-// // Affichage d'un message contextuel pour la saisie du pseudo
-// pseudoElt.addEventListener("focus", function () {
-// document.getElementById("aidePseudo").textContent = "Entrez votre pseudo";
-// });
-// // // Suppression du message contextuel pour la saisie du pseudo
-// pseudoElt.addEventListener("blur", function (e) {
-//     document.getElementById("aidePseudo").textContent = "";
-// });
-
-
-
-// document.getElementById("pseudo").onclick = function() {myFunction()};
-// document.getElementsByClassName("demo")[0].onclick = function() {myFunction()};
-
-
-
-function myFunction() {
-  document.getElementsByClassName("demo")[0].innerHTML = "Hello World!";
-  // var x = document.getElementsByClassName("demo");
-  // x[0].innerHTML = "Hello World!";
-}
-
-
-
-
 // TO DO -----------------------------------------------------------
-function cancel2 () {
+function cancel () {
+  // With array (Player, Value)
 }
 
 function raz(arg) {
+  // Raz only Bornes
 }
 
-
-// TESTS HELP -----------------------------------------------------------
-
-function tryme() {
-  alert("Hello You");
-}
 
 // REAL FUNCTIONS ------------------------------------------------------
 
-// Refresh the Total is Click or press Enter
-addEventListener("click",total);
-addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    event.preventDefault(); // Cancel the default action, if needed
-    total();
-  }
-});
+// UTILISE "indice_container" pour connaitre le joueur actuel
+//     -->  PLUS TARD changer pour utiliser l'info de la case joueur_actif
+function up(arg1) {
 
-function replace() {
-      var text = "1000 Bornes";
-      document.getElementById("myText").innerHTML = text;
+  // Search for _P position in the Class name"
+  var p = document.getElementsByClassName("indice_container")[0].className.indexOf("_P");
+  // Check number right after _P (which is current player)
+  var i = document.getElementsByClassName("indice_container")[0].className.charAt(p+2);
+
+  n = document.getElementById("num"+i);
+  i = document.getElementById("i"+arg1+"_"+i);
+
+  // Increase Bornes and Indice
+  n.value = parseInt(n.value)+arg1;
+  i.value = parseInt(i.value)+1;
 }
 
-function up(arg) {
-n = document.getElementById(arg);
-n.value = parseInt(n.value)+1;
-total();
-cancel(arg);
-}
+function down(arg1) {
 
-function up2(arg1, arg2) {
-n = document.getElementById(arg1);
-n.value = parseInt(n.value)+arg2;
-total();
-cancel(arg1);
-}
+  // Search for _P position in the Class name"
+  var p = document.getElementsByClassName("indice_container")[0].className.indexOf("_P");
+  // Check number right after _P (which is current player)
+  var i = document.getElementsByClassName("indice_container")[0].className.charAt(p+2);
 
-function down(arg) {
-n = document.getElementById(arg);
-  if (n.value > 0) {
-    n.value = parseInt(n.value)-1;
-    total();
-    cancel(arg);
+  n = document.getElementById("num"+i);
+  i = document.getElementById("i"+arg1+"_"+i);
+
+  // Decrease value if not under 0
+  if (n.value >= arg1 && i.value > 0) {
+    n.value = parseInt(n.value)-arg1;
+    i.value = parseInt(i.value)-1;
   }
 }
 
-function down2(arg1, arg2) {
-n = document.getElementById(arg1);
-  if (n.value >= arg2) {
-    n.value = parseInt(n.value)-arg2;
-    total();
-    cancel(arg1);
-  }
-}
-
-// arg == 0 : Demande de cancel
-// arg == data : Register new Temp data
-function cancel(arg) {
-  if (arg == 0 && temp != 0) {
-    n = document.getElementById(temp);
-    n.value = parseInt(n.value)-1;
-    temp = 0;
-  }
-  else {
-     temp = arg;
-     n = document.getElementById(arg);
-  }
-}
-
-function total() {
-  for (var i = 1; i <= 2; i++) {
-    var borne = "borne"+i;
-    var botte = "botte"+i;
-    var abotte = "abotte"+i;
-    var cf = "cf"+i;
-    var manche = "manche"+i;
-    var se = "se"+i;
-    var t = "total"+i;
-
-    n1 = document.getElementById(borne);
-    n2 = document.getElementById(botte);
-    n3 = document.getElementById(abotte);
-    n4 = document.getElementById(cf);
-    n5 = document.getElementById(manche);
-    n6 = document.getElementById(se);
-
-    // sum = (parseInt(n1.value)*1)+(parseInt(n2.value)*100)+(parseInt(n3.value)*400)+(parseInt(n4.value)*700)+(parseInt(n5.value)*300);
-    sum = (parseInt(n2.value)*100)+(parseInt(n3.value)*700)+(parseInt(n4.value)*300)+(parseInt(n5.value)*400)+(parseInt(n6.value)*300);
-    document.getElementById(t).innerHTML = sum;
-
-    if (sum >= 5000) {
-
-      setTimeout(function() {
-        //your code to be executed after ... second
-        alert("Player "+i+" Win !")
-      }, 500);
-      return;
+function ChangePlayer(arg1) {
+  // Update all Indice visibility
+  for (var a = 1; a <= 4; a++) {
+    for (var i = 1; i < 9; i++) {
+      var temp = "i"+i*25+"_"+a;
+      var n = document.getElementById(temp);
+      // We want to see this one
+      if (a == arg1) {n.className = "";}
+      // We don't want to see thoss ones
+      else {n.className = "hidden";}
+      if (i == 4) { i = 7}
     }
   }
+  // Update all colored border
+  var player = "indice_container indice_border_P"+arg1;
+  var x = document.getElementsByClassName("indice_container");
+  for (var i = 0; i < 5; i++) {
+    x[i].className = player;
+  }
 }
+
+
+
+// ---------- TEST ----------
