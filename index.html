@@ -4,236 +4,196 @@
   <head>
       <meta charset="utf-8">
       <link rel="stylesheet" href="./style.css">
-      <title>1000 Bornes</title>
+      <title>New 1000 Bornes</title>
   </head>
 
-  <body onload="replace()">
-    <script type="text/javascript" src="script.js"></script>
+  <body>
+    <script type="text/javascript" src="./script.js"></script>
 
+    <div class="menu_container">
 
-      <form>
-          <h1>Tableau des scores <span id="myText"></span></h1>
-          <p class="demo">Class Demo 0</p>
-          <p class="demo">Class Demo 1</p>
-          <p class="demo">Class Demo 2</p>
-          <p id="demo">ID Demo ...</p>
+      <br><br><br>
 
-          <div>
-              <label for="pseudo">Pseudo</label> :
-              <input type="text" name="pseudo" id="pseudo" required>
-              <span id="aidePseudo"></span>
+      <div>
+        <label for="num">Borne P1 : </label>
+        <input type="number" name="num" id="num1" value="0">
+        <br>
+        <label for="num">Borne P2 : </label>
+        <input type="number" name="num" id="num2" value="0">
+        <br>
+        <label for="num">Borne P3 : </label>
+        <input type="number" name="num" id="num3" value="0">
+        <br>
+        <label for="num">Borne P4 : </label>
+        <input type="number" name="num" id="num4" value="0">
+      </div>
+
+      <br><br>
+
+<!-- ________________ TEMPORAIRE POUR CHANGER JOUEUR ________________ -->
+      <!-- <div class="P1" onclick="ChangePlayer(1)"></div>
+      <div class="P2" onclick="ChangePlayer(2)"></div>
+      <div class="P3" onclick="ChangePlayer(3)"></div>
+      <div class="P4" onclick="ChangePlayer(4)"></div> -->
+
+      <br><br>
+
+      <div class="borne_container">
+        <div class="card_indice_container">
+          <div class="card_container">
+            <svg class="card" width="120" height="150">
+                <path class="card_green" d="m0,0 120,0 0,60 -120,30 Z" onclick="up(25)"/>
+                <path class="card_red" d="m0,90 120,-30 0,90 -120,0 Z" onclick="down(25)"/>
+                <path d="m0,90 120,-30" stroke="white" stroke-width="2"/>
+                <circle cx="60" cy="75" r="22" fill="white"/>
+                <text class="card_text" x="8" y="25">+</text>
+                <text class="card_text" x="8" y="140">-</text>
+                <text class="card_text" x="46" y="84">25</text>
+            </svg>
           </div>
-
-          <div>
-              <label for="num">Number</label> :
-              <input type="number" name="num" id="num" value="123">
-              <span id="aidenum"></span>
-              <div class="press" onclick="up('num')"/>+</div>
-              <div class="press" onclick="down('num')"/>-</div>
-              <br><br>
-              <div class="press" onclick="reset()"/>RAZ</div>        <!-- Reset() is an inbuild Java method -->
-              <div class="press" onclick="cancel(0)"/>Cancel</div>
-              <div class="press" onclick="total()"/>Total</div>
-            <br>
+          <div class="indice_container">
+            <label for="indice"></label>
+            <input class="hidden" type="number" name="indice" id="i25_1" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i25_2" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i25_3" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i25_4" value="0" readonly>
           </div>
+        </div>
 
-<!-- ________________________ 2 GAMERS ________________________ -->
-
-          <div class="" id="table">
-            <table>
-              <thead>                                           <!-- To structure a table : Declare Head-->
-                <tr>
-                  <th scope="col" colspan="3"> Damien </th>
-                  <th scope="col" colspan="3"> Coline </th>
-                </tr>
-              <thead>
-              <tbody>                                           <!-- To structure a table : Declare Body-->
-                <!-- ROW 1-->
-                <tr>
-                  <td class="picture" rowspan="16"></td>
-                  <td rowspan="2">
-                    <label for="borne">Borne</label>
-                    <input type="text" name="borne" id="borne1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up2('borne1', 25)">+</td>
-                  <td class="picture" rowspan="16"></td>
-                  <td rowspan="2">
-                    <label for="borne">Borne</label>
-                    <input type="text" name="borne" id="borne2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up2('borne2', 25)">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down2('borne1', 25)">-</td>
-                  <td class="button" onclick="down2('borne2', 25)">-</td>
-                </tr>
-                <!-- ROW 2-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Botte (100)</label>
-                    <input type="text" name="num" id="botte1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('botte1')">+</td>
-                  <td class="value" rowspan="2">
-                    <label for="num">Botte (100)</label>
-                    <input type="text" name="num" id="botte2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('botte2')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('botte1')">-</td>
-                  <td class="button" onclick="down('botte2')">-</td>
-                </tr>
-                <!-- ROW 2-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">4x Bottes (700)</label>
-                    <input type="text" name="num" id="abotte1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('abotte1')">+</td>
-                  <td class="value" rowspan="2">
-                    <label for="num">4x Bottes (700)</label>
-                    <input type="text" name="num" id="abotte2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('abotte2')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('abotte1')">-</td>
-                  <td class="button" onclick="down('abotte2')">-</td>
-                </tr>
-                <!-- ROW 3-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Coup fouré (300)</label>
-                    <input type="text" name="num" id="cf1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('cf1')">+</td>
-                  <td class="value" rowspan="2">
-                    <label for="num">Coup fouré (300)</label>
-                    <input type="text" name="num" id="cf2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('cf2')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('cf1')">-</td>
-                  <td class="button" onclick="down('cf2')">-</td>
-                </tr>
-                <!-- ROW 4-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Manche (400)</label>
-                    <input type="text" name="num" id="manche1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('manche1')">+</td>
-                  <td class="value" rowspan="2">
-                    <label for="num">Manche (400)</label>
-                    <input type="text" name="num" id="manche2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('manche2')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('manche1')">-</td>
-                  <td class="button" onclick="down('manche2')">-</td>
-                </tr>
-                <!-- ROW 5-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">200 sans étape (300)</label>
-                    <input type="text" name="num" id="se1" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('se1')">+</td>
-                  <td class="value" rowspan="2">
-                    <label for="num">200 sans étape (300)</label>
-                    <input type="text" name="num" id="se2" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('se2')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('se1')">-</td>
-                  <td class="button" onclick="down('se2')">-</td>
-                </tr>
-                <!--  -->
-                <tr>
-                  <td class="value" id="total1" colspan="2">0</td>
-                  <td class="value" id="total2" colspan="2">0</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="card_indice_container">
+          <div class="card_container">
+            <svg class="card" width="120" height="150">
+                <path class="card_green" d="m0,0 120,0 0,60 -120,30 Z" onclick="up(50)"/>
+                <path class="card_red" d="m0,90 120,-30 0,90 -120,0 Z" onclick="down(50)"/>
+                <path d="m0,90 120,-30" stroke="white" stroke-width="2"/>
+                <circle cx="60" cy="75" r="22" fill="white"/>
+                <text class="card_text" x="8" y="25">+</text>
+                <text class="card_text" x="8" y="140">-</text>
+                <text class="card_text" x="46" y="84">50</text>
+            </svg>
           </div>
-
-<!-- ________________________ 1 GAMER ________________________ -->
-
-          <div class="" id="table1">
-            <table>
-              <thead>
-                <tr>
-                  <th scope="col" colspan="2"> Damien </th>
-                </tr>
-              <thead>
-              <tbody>
-                <!-- ROW 1-->
-                <tr>
-                  <td rowspan="2">
-                    <label for="borne">Borne</label>
-                    <input type="text" name="borne" id="borne" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('borne')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('borne')">-</td>
-                </tr>
-                <!-- ROW 2-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Botte (100)</label>
-                    <input type="text" name="num" id="botte" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('botte')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('botte')">-</td>
-                </tr>
-                <!-- ROW 3-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Coup fouré (400)</label>
-                    <input type="text" name="num" id="cf" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('cf')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('cf')">-</td>
-                </tr>
-                <!-- ROW 4-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">Manche (700)</label>
-                    <input type="text" name="num" id="manche" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('manche')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('manche')">-</td>
-                </tr>
-                <!-- ROW 5-->
-                <tr>
-                  <td class="value" rowspan="2">
-                    <label for="num">200 sans étape (300)</label>
-                    <input type="text" name="num" id="se" value="0" required>
-                  </td>
-                  <td class="button" onclick="up('se')">+</td>
-                </tr>
-                <tr>
-                  <td class="button" onclick="down('se')">-</td>
-                </tr>
-                <!--  -->
-                <tr>
-                  <td class="value" id="total" colspan="2">0</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="indice_container">
+            <label for="indice"></label>
+            <input class="hidden" type="number" name="indice" id="i50_1" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i50_2" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i50_3" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i50_4" value="0" readonly>
           </div>
-      </form>
+        </div>
+
+        <div class="card_indice_container">
+          <div class="card_container">
+            <svg class="card" width="120" height="150">
+                <path class="card_green" d="m0,0 120,0 0,60 -120,30 Z" onclick="up(75)"/>
+                <path class="card_red" d="m0,90 120,-30 0,90 -120,0 Z" onclick="down(75)"/>
+                <path d="m0,90 120,-30" stroke="white" stroke-width="2"/>
+                <circle cx="60" cy="75" r="22" fill="white"/>
+                <text class="card_text" x="8" y="25">+</text>
+                <text class="card_text" x="8" y="140">-</text>
+                <text class="card_text" x="46" y="84">75</text>
+            </svg>
+          </div>
+          <div class="indice_container">
+            <label for="indice"></label>
+            <input class="hidden" type="number" name="indice" id="i75_1" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i75_2" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i75_3" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i75_4" value="0" readonly>
+          </div>
+        </div>
+
+        <div class="card_indice_container">
+          <div class="card_container">
+            <svg class="card" width="120" height="150">
+                <path class="card_green" d="m0,0 120,0 0,60 -120,30 Z" onclick="up(100)"/>
+                <path class="card_red" d="m0,90 120,-30 0,90 -120,0 Z" onclick="down(100)"/>
+                <path d="m0,90 120,-30" stroke="white" stroke-width="2"/>
+                <circle cx="60" cy="75" r="22" fill="white"/>
+                <text class="card_text" x="8" y="25">+</text>
+                <text class="card_text" x="8" y="140">-</text>
+                <text class="card_text" x="40" y="84">100</text>
+            </svg>
+          </div>
+          <div class="indice_container">
+            <label for="indice"></label>
+            <input class="hidden" type="number" name="indice" id="i100_1" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i100_2" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i100_3" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i100_4" value="0" readonly>
+          </div>
+        </div>
+
+        <div class="card_indice_container">
+          <div class="card_container">
+            <svg class="card" width="120" height="150">
+                <path class="card_green" d="m0,0 120,0 0,60 -120,30 Z" onclick="up(200)"/>
+                <path class="card_red" d="m0,90 120,-30 0,90 -120,0 Z" onclick="down(200)"/>
+                <path d="m0,90 120,-30" stroke="white" stroke-width="2"/>
+                <circle cx="60" cy="75" r="22" fill="white"/>
+                <text class="card_text" x="8" y="25">+</text>
+                <text class="card_text" x="8" y="140">-</text>
+                <text class="card_text" x="40" y="84">200</text>
+            </svg>
+          </div>
+          <div class="indice_container">
+            <label for="indice"></label>
+            <input class="hidden" type="number" name="indice" id="i200_1" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i200_2" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i200_3" value="0" readonly>
+            <input class="hidden" type="number" name="indice" id="i200_4" value="0" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="game_container">
+
+      <div class="title_containerd">
+        <h1 class="title">1000 Bornes</h1>
+        <!-- <svg class="logo" width="120" height="150">
+            <path class="top" d="m0,32 q31,-62 62,0 Z" onclick=""/>
+            <path class="bottom" d="m0,36 62,0 0,49 -62,0 Z" onclick=""/>
+        </svg> -->
+      </div>
+
+      <br><br><br>
+
+      <div class="round_container">
+        <div class="round color_P1">1</div>
+        <div class="round color_P2">2</div>
+        <div class="round color_P1">3</div>
+        <div class="round color_P1">4</div>
+        <div class="round">5</div>
+        <div class="round">6</div>
+        <div class="round">7</div>
+        <div class="round">8</div>
+        <div class="round">9</div>
+        <div class="round">10</div>
+      </div>
+ 
+      <br><br><br>
+      <div class="player_card_container">
+        <div class="player_card color_P1" onclick="ChangePlayer(1)">
+          <div class="card_color"> </div>
+          <div class="player"> </div>
+        </div>
+
+        <div class="player_card color_P2" onclick="ChangePlayer(2)">
+          <div class="card_color"> </div>
+          <div class="player"> </div>
+        </div>
+
+        <div class="player_card color_P3" onclick="ChangePlayer(3)">
+          <div class="card_color"> </div>
+          <div class="player"> </div>
+        </div>
+
+        <div class="player_card color_P4" onclick="ChangePlayer(4)">
+          <div class="card_color"> </div>
+          <div class="player"> </div>
+        </div>
+    </div>
+    </div>
 
   </body>
 </html>

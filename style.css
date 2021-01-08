@@ -1,50 +1,208 @@
 
+/* ---------- TO DO ---------- */
+/* Create a Class for Roboto font */
 
-.press {
-  display: inline-block;
-  min-width: 20px;
-  /* height: 20px; */
-  padding: 10px 10px;
-  /* border: solid lightgrey 0.3px; */
-  border-radius: 3px;
-  text-align: center;
-  background-color: lightblue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-table input {
-  text-align: center;
+body {
+  display: inline-flex;
+}
+
+::selection {  background: none;}
+
+/* BODY */
+.menu_container, .game_container {
+}
+
+.menu_container {
+  width: 30vw;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.game_container {
+width: 70vw;
+height: 100vh;
+/* background-color: white; */
+}
+
+/* BORNE ZONE */
+.borne_container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* CARD */
+.card_text::selection  {  background: none;}
+
+.card_container {
+  margin: 10px;
+}
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.card_text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
   font-size: 25px;
-  margin: 10px 30px;
-  width: 75px;
-  border: 0;
-  background-color: lightblue;
+  fill: #000;
 }
 
-th, td, tr {
-  /* width: 100px;
-  height: 50px; */
-  border-radius: 3px;
-  background-color: lightblue;
+.card_green {  fill: #BEF662;}
+.card_green:active {  fill: #B8EA66;}
+
+.card_red {  fill: #FF6C6C;}
+.card_red:active {  fill: #EE6666;}
+
+.card_indice_container {
+
 }
 
-th {
-  height: 100px;
-}
-
-td {
-  height: 50px;
-}
-
-td.picture {
-  width: 100px
-}
-
-td.value {
-  width: 100px;
-}
-
-td.button {
-  width: 50px;
-  height: 50px;
+/* INDICE */
+.indice_container {
+  position: relative;
+  top: -30px;
+  left: 105px;
+  width: 24px;
+  height: 24px;
+  padding: 3px 0 0 0;
+  margin-left: 10px;
+  border-bottom: solid 3px lightgrey;
+  border-radius: 3px 3px 0 0;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
+
+.indice_border_P1 {  border-color: #61DAEB;}
+.indice_border_P2 {  border-color: #FFE08F;}
+.indice_border_P3 {  border-color: #BEF662;}
+.indice_border_P4 {  border-color: #FF9DFB;}
+
+.indice_container input {
+  border: none;
+  width : 24px;
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {  -moz-appearance: textfield;}
+
+.hidden {
+  display: none;
+}
+
+/* TITLE */
+.title {
+  text-align: right;
+  line-height: 1em;
+  padding: 42px 180px 0 0;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 75px;
+}
+
+
+/* ROUND */
+.round_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.round {
+  box-sizing: border-box;
+  width: 58px;
+  height: 58px;
+  padding-top: 10px;
+  border: solid lightgrey;
+
+  border-width: 2px 2px 10px 2px;
+  /* border-radius: 5px 5px 0 0; */
+  /* border-radius: 5px 5px 3px 3px; */
+  border-radius: 5px;
+
+  background-color: white;
+  text-align: center;
+  color: lightgrey;
+
+  margin: 20px 8px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.round_P1 {border-color: #61DAEB;}
+.round_P2 {border-color: #FFE08F;}
+.round_P3 {border-color: #BEF662;}
+.round_P4 {border-color: #FF9DFB;}
+
+
+/* PLAYER */
+.player_card_container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.player_card {
+  margin: 24px 21px;
+
+  box-sizing: border-box;
+  width: 420px;
+  height: 160px;
+  background-color: white;
+  border-radius: 10px;
+  border: solid;
+  border-width: 0 0 0 45px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.color_P1 {border-color: #61DAEB;}
+.color_P2 {border-color: #FFE08F;}
+.color_P3 {border-color: #BEF662;}
+.color_P4 {border-color: #FF9DFB;}
+
+
+
+/* ---------- TEST ----------  */
+
+
+
+.P1, .P2, .P3, .P4 {
+  display: inline-block;
+  width : 50px;
+  height: 50px;
+}
+
+.P1 {background-color: #61DAEB;}
+.P2 {background-color: #FFE08F;}
+.P3 {background-color: #BEF662;}
+.P4 {background-color: #FF9DFB;}
+
+/* ---------- ---- ----------  */
