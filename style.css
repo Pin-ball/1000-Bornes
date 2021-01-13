@@ -10,24 +10,32 @@
 }
 
 body {
-  display: inline-flex;
 }
 
-::selection {  background: none;}
+/* ::selection {  background: none;} */
+
+.wrapper {
+  display: inline-flex;
+  overflow: hidden;
+}
 
 /* BODY */
 .menu_container, .game_container {
 }
 
+.blur {
+  filter: blur(5px);
+}
+
 .menu_container {
-  width: 30vw;
+  width: 32vw;
   height: 100vh;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
 .game_container {
-width: 70vw;
+width: 68vw;
 height: 100vh;
 /* background-color: white; */
 }
@@ -35,7 +43,7 @@ height: 100vh;
 /* BORNE ZONE */
 .borne_container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -179,25 +187,75 @@ input[type=number] {  -moz-appearance: textfield;}
   background-color: white;
   border-radius: 10px;
   border: solid;
-  border-width: 0 0 0 45px;
+  border-width: 0 0 0 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
+.color_P1, .color_P2, .color_P3, .color_P4 {color: black;}
 .color_P1 {border-color: #61DAEB;}
 .color_P2 {border-color: #FFE08F;}
 .color_P3 {border-color: #BEF662;}
 .color_P4 {border-color: #FF9DFB;}
 
-
+.p_active {
+  border-left-width: 45px;
+}
 
 /* ---------- TEST ----------  */
 
+.playerChoice_hider {
+  display: none;
+  z-index: 9;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(223, 223, 223, 0.66);
 
+  /* backdrop-filter: blur(15px); */
+
+  /* -webkit-filter: blur(5px);
+-moz-filter: blur(5px);
+-o-filter: blur(5px);
+-ms-filter: blur(5px); */
+/* filter: blur(5px); */
+}
+
+.playerChoice_container {
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 75vw;
+  height: 50vh;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.playerChoice_container .player_card {
+  height: auto;
+  margin: 10px;
+  padding: 10px 20px;
+  width: 250px;
+  /* TO REMOVE */
+  border-radius: 20px;
+  /* ___ */
+}
+
+.playerChoice_active {
+  display: block;
+  /* animation-duration: 3s; */
+}
 
 .P1, .P2, .P3, .P4 {
   display: inline-block;
-  width : 50px;
+  width : 100px;
   height: 50px;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .P1 {background-color: #61DAEB;}
