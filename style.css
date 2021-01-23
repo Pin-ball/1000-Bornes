@@ -189,9 +189,15 @@ input[type=number] {  -moz-appearance: textfield;}
   border: solid;
   border-width: 0 0 0 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
 }
 
-.color_P1, .color_P2, .color_P3, .color_P4 {color: black;}
+.color_P0 {border-color: #B1B1B1;}
+.color_P0, .color_P1, .color_P2, .color_P3, .color_P4 {color: black;}
 .color_P1 {border-color: #61DAEB;}
 .color_P2 {border-color: #FFE08F;}
 .color_P3 {border-color: #BEF662;}
